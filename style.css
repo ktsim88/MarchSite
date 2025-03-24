@@ -1,0 +1,39 @@
+body {
+    background-color: rgb(158, 206, 139);
+    
+}
+h1 {
+    font-family: "rl-aqva", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+i {
+    font-family: "nelson-ornaments", sans-serif;
+font-weight: 400;
+font-style: normal;
+}
+#difficultySelection {
+    background-color: white;
+    border-radius: 15px;
+    border: 3px dotted rgb(0, 0, 0);
+}
+#gameArea {
+    background-color: rgb(195, 255, 195);
+}
+
+.easy {
+    background-color: rgba(71, 255, 86, 0.575);
+    border-radius: 15px;
+    border: 3px dashed rgb(0, 90, 20);
+    
+}
+.medium {
+    background-color: rgb(255, 255, 115);
+    border-radius: 15px;
+    border: 3px dashed rgb(90, 89, 0);
+}
+.hard {
+    background-color: rgba(255, 122, 122, 0.685);
+    border-radius: 15px;
+    border: 3px dashed rgb(110, 0, 0);
+}
