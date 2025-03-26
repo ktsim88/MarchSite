@@ -98,6 +98,7 @@ function wrongGuess(guessedLetter) {
 }
 
 function correctGuess(guessedLetter) {
+
   let newDisplayedWord = ''
 
   for (let i = 0; i < selectedWord.length; i++) {
@@ -105,9 +106,11 @@ function correctGuess(guessedLetter) {
       newDisplayedWord += guessedLetter
     } else {
       newDisplayedWord += displayWord[i]
+   
     }
   }
-  newDisplayedWord = displayWord
+   displayWord = newDisplayedWord
+  
   document.getElementById("wordDisplay").textContent = displayWord
     .split("")
     .join(" ");
