@@ -14,7 +14,7 @@ const wordList = [
 //setting game variables
 let selectedWord = "";
 let displayWord = "";
-let wrongGuess = 0;
+let wrongGuesses = 0;
 let guessedLetters = [];
 const maxMistakes = 6;
 
@@ -83,4 +83,47 @@ function guessLetter() {
   }
   inputField.value = '';
   inputField.focus();
+}
+
+function wrongGuess(guessedLetter) {
+  //increment number of wrong guesses 
+  wrongGuesses++
+  //add guessedletter to  html div
+  document.getElementById('wrongLetters').textContent += `${guessedLetter}` + ' '
+  document.getElementById('shamrock').src = `imgs/shamrock${6 - wrongGuesses}.jpg`
+  // check if number of wrong guesses is equal to max mistakes, if so call endGame()
+  if (wrongGuesses === maxMistakes) {
+    endGame(false)
+  }
+}
+
+function correctGuess(guessedLetter) {
+  let newDisplayedWord = ''
+
+  for (let i = 0; i < selectedWord.length; i++) {
+    if (selectedWord[i] === guessedLetter) {
+      newDisplayedWord += guessedLetter
+    } else {
+      newDisplayedWord += displayWord[i]
+    }
+  }
+  newDisplayedWord = displayWord
+  document.getElementById("wordDisplay").textContent = displayWord
+    .split("")
+    .join(" ");
+  if (!displayWord.includes('_')) {
+    endGame(true)
+  }
+}
+
+function endGame(won) {
+  if (won === true) {
+    setTimeout(() => alert('you won'), 100)
+    } else {
+    setTimeout(() => alert('oh no, you lost!'), 100)
+  }
+}
+
+function restartGame() {
+  location.reload()
 }
