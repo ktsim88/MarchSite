@@ -90,7 +90,7 @@ function wrongGuess(guessedLetter) {
   wrongGuesses++
   //add guessedletter to  html div
   document.getElementById('wrongLetters').textContent += `${guessedLetter}` + ' '
-  document.getElementById('shamrock').src = `imgs/shamrock${6 - wrongGuesses}.jpg`
+  document.getElementById('shamrock').src = `imgs/shamrock${0 + wrongGuesses}.png`
   // check if number of wrong guesses is equal to max mistakes, if so call endGame()
   if (wrongGuesses === maxMistakes) {
     endGame(false)
@@ -128,5 +128,5 @@ function endGame(won) {
 }
 
 function restartGame() {
-  location.reload()
+
 }
