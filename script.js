@@ -111,9 +111,7 @@ function correctGuess(guessedLetter) {
   }
    displayWord = newDisplayedWord
   
-  document.getElementById("wordDisplay").textContent = displayWord
-    .split("")
-    .join(" ");
+  document.getElementById("wordDisplay").textContent = displayWord.split("").join(" ");
   if (!displayWord.includes('_')) {
     endGame(true)
   }
@@ -123,10 +121,10 @@ function endGame(won) {
   if (won === true) {
     setTimeout(() => alert('you won'), 100)
     } else {
-    setTimeout(() => alert('oh no, you lost!'), 100)
+    setTimeout(() => alert(`oh no, you lost! The word was ${selectedWord}`), 100)
   }
 }
 
 function restartGame() {
-
+  location.reload()
 }
