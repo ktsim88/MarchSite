@@ -17,7 +17,9 @@ let displayWord = "";
 let wrongGuesses = 0;
 let guessedLetters = [];
 const maxMistakes = 6;
-
+//button variable
+let guessBtn = document.getElementById('guessBtn')
+//start game function
 function startGame(level) {
   selectedWord = getRandomWord(level);
 
@@ -61,7 +63,7 @@ function updateDifficultyDisplay(level) {
 function guessLetter() {
   let inputField = document.getElementById("letterInput"); //get input field
   let guessedLetter = inputField.value.toLowerCase(); //convert input to lowercase
-
+  //guessed letter enter key
   //check if letter input is valid letter (a-z)
   if (!guessedLetter.match(/^[a-z]$/)) {
     alert("Please enter a letter from A-Z");
@@ -128,3 +130,10 @@ function endGame(won) {
 function restartGame() {
   location.reload()
 }
+
+//enter key button
+document.getElementById('letterInput').addEventListener('keypress', (event) => {
+  if (event.key === 'Enter') {
+    guessLetter();
+  }
+})
