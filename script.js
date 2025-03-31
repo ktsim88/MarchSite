@@ -78,16 +78,21 @@ function guessLetter() {
     guessedLetters.push(guessedLetter);
   }
   //chekc if guessed letter is in the selected word
-  if (selectedWord.includes(guessedLetters)) {
+  if (selectedWord.includes(guessedLetter)) {
     correctGuess(guessedLetter);
   } else {
     wrongGuess(guessedLetter);
   }
+  
   inputField.value = '';
   inputField.focus();
 }
 
 function wrongGuess(guessedLetter) {
+  //audio plays wrong guess
+  wrongSound = document.getElementById('wrongSound')
+  wrongSound.muted = false
+  wrongSound.play();
   //increment number of wrong guesses 
   wrongGuesses++
   //add guessedletter to  html div
@@ -100,7 +105,10 @@ function wrongGuess(guessedLetter) {
 }
 
 function correctGuess(guessedLetter) {
-
+//audio plays correct guess
+correctSound = document.getElementById('correctSound')
+correctSound.muted = false
+correctSound.play();
   let newDisplayedWord = ''
 
   for (let i = 0; i < selectedWord.length; i++) {
