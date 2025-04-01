@@ -142,6 +142,6 @@ function restartGame() {
 //enter key button
 document.getElementById('letterInput').addEventListener('keypress', (event) => {
   if (event.key === 'Enter') {
-    guessLetter();
+    setTimeout(() => guessLetter(), 1000);
   }
 })

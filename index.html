@@ -24,7 +24,7 @@
     <body>
         <main class="container text-center">
             <!-- title -->
-            <h1 class="mb-4 my-3">Shamrock Hangman</h1>
+            <h1 class="mb-4 my-3"><i>f</i>Shamrock Hangman<i>f</i></h1>
             <!-- difficulty selection -->
             <div class="row">
                 <div id="difficultySelection" class="py-3"> <!--remove D-NONE-->
@@ -45,12 +45,32 @@
 
               <!-- game area -->
               <div class="row">
-                <div id="gameArea" class="mt-4 d-none"> <!--ADD D_nONE-->
+                <div id="gameArea" class="mt-4 d-none mb-3"> <!--ADD D_nONE-->
                 <!-- word display -->
                  <h2 id="wordDisplay" class="mb-3">_ _ _ _ _ _</h2>
                  <!-- input for guessing -->
-                  <div>
-                    <input type="text" id="letterInput" maxlength="1" class="form-control d-inline-block w-auto text-center" placeholder="Guess a Letter">
+                  <div class="row">
+                                            <!-- guide on how to play -->
+                    <div class="col-md-4">
+                        <div class="card d-md-block d-none h-100 my-1">
+                            <div class="card-body">
+                              <h5 class="card-title">How to play?</h5>
+                              <h6 class="card-subtitle mb-2 text-body-secondary">Instructions</h6>
+                              <p class="card-text">
+                                <ol>
+                                    <li>Type any letter from a-z in the textbox and make your guess.</li>
+                                    <li>If you make the <strong>WRONG</strong> guess, a part of the clover will show up.</li>
+                                    <li>If you make the <strong>CORRECT</strong> guess, the letters will show up and fill in the gaps.</li>
+                                    <li>Continue to guess all of the letters until you finish the word</li>
+                                    <li>If you make more than 6 mistakes, the game is over.</li>
+                                    <li>Click the restart button when you finish.</li>
+                                </ol>
+                              </p>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <input type="text" id="letterInput" maxlength="1" class="form-control d-inline-block w-auto text-center" placeholder="Guess a Letter">
                     <button id="guessBtn" class="btn btn-warning" onclick="guessLetter()">Guess</button>
                     <div class="row my-3">
                      <!-- wrong guess list -->
@@ -64,12 +84,28 @@
                           </audio>
                           
                      <!-- shamrock health image -->
-                      <img src="#" id="shamrock" class="shamrock-img img-fluid">
+                      <img src="" id="shamrock" class="shamrock-img img-fluid">
                         <!-- restart button -->
                        <div class="mt-4">
                         <button id="restartBtn" class="btn btn-danger" onclick="restartGame()">Restart</button>
                        </div>
                     </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <!-- win/loss counter -->
+                            <div class="card h-100 my-1">
+                                <div class="card-body">
+                                  <h5 class="card-title">Display Counter</h5>
+                                  <h6 class="card-subtitle mb-2 text-body-secondary">Wins/Losses</h6>
+                                  <p class="card-text">Here's where you will see your wins and losses from all of the games you have played</p>
+                                  <p id="winCounter">Wins:</p>
+                                  <p id="lossCounter">Losses:</p>
+                                </div>
+                              </div>
+                         
+                    </div>
+
+                    
                   </div>
                </div>
               </div>
