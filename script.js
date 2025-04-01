@@ -136,12 +136,22 @@ function endGame(won) {
 }
 
 function restartGame() {
-  location.reload()
+  selectedWord = "";
+ displayWord = "";
+ wrongGuesses = 0;
+  guessedLetters = []
+  //show difficulty selection and show game area
+  document.getElementById("difficultySelection").classList.add("d-block");
+  document.getElementById("difficultySelection").classList.remove("d-none");
+
+  //add d-none to  the difficulty selection div
+  document.getElementById("gameArea").classList.add("d-none");
+  document.getElementById("difficultyBox").classList.add("d-none");
 }
 
-//enter key button
+//enter key button with a 1.5 second timeout
 document.getElementById('letterInput').addEventListener('keypress', (event) => {
   if (event.key === 'Enter') {
-    setTimeout(() => guessLetter(), 1000);
+    setTimeout(() => guessLetter(), 1500);
   }
 })
