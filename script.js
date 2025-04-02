@@ -129,10 +129,12 @@ correctSound.play();
 
 function endGame(won) {
   if (won === true) {
-    setTimeout(() => alert('you won'), 100)
+    document.getElementById('winAlert').classList.remove('d-none')
+    document.getElementById('winnerMessage').textContent = `Congrats! You guessed the word "${selectedWord}" correctly! Click on the restart button to play again.`
     } else {
-    setTimeout(() => alert(`oh no, you lost! The word was ${selectedWord}`), 100)
-  }
+      document.getElementById('loseAlert').classList.remove('d-none')
+      document.getElementById('loserMessage').textContent = `Yikes! The correct word was "${selectedWord}". Click on the restart button to play again.`
+      }
 }
 
 function restartGame() {

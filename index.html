@@ -85,10 +85,31 @@
                           
                      <!-- shamrock health image -->
                       <img src="" id="shamrock" class="shamrock-img img-fluid">
-                        <!-- restart button -->
+                        <!-- alert that tells user that they won/lost with restart button inside -->
+                         <!-- winner message -->
+                        <div class="row mx-auto">
+                            <div class="alert d-none" role="alert" id="winAlert">
+                                <h4 class="alert-heading">Well done!</h4>
+                                <p id="winnerMessage"></p>
+                                <hr>
+                                <!-- restart button -->
                        <div class="mt-4">
                         <button id="restartBtn" class="btn btn-danger" onclick="restartGame()">Restart</button>
                        </div>
+                              </div>
+                          </div>
+                          <!-- loser message -->
+                      <div class="row mx-auto">
+                            <div class="alert d-none" role="alert" id="loseAlert">
+                                <h4 class="alert-heading">Too Bad!</h4>
+                                <p id="loserMessage"></p>
+                                <hr>
+                                <!-- restart button -->
+                       <div class="mt-4">
+                        <button id="restartBtn" class="btn btn-danger" onclick="restartGame()">Restart</button>
+                       </div>
+                              </div>
+                          </div>
                     </div>
                     </div>
                     <div class="col-md-4 col-sm-12">
