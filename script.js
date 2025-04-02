@@ -16,6 +16,8 @@ let selectedWord = "";
 let displayWord = "";
 let wrongGuesses = 0;
 let guessedLetters = [];
+let winCounter = 0
+let lossCounter = 0
 const maxMistakes = 6;
 //button variable
 let guessBtn = document.getElementById('guessBtn')
@@ -129,9 +131,11 @@ correctSound.play();
 
 function endGame(won) {
   if (won === true) {
+    winDisplay();
     document.getElementById('winAlert').classList.remove('d-none')
     document.getElementById('winnerMessage').textContent = `Congrats! You guessed the word "${selectedWord}" correctly! Click on the restart button to play again.`
-    } else {
+  } else {
+    lossDisplay();
       document.getElementById('loseAlert').classList.remove('d-none')
       document.getElementById('loserMessage').textContent = `Yikes! The correct word was "${selectedWord}". Click on the restart button to play again.`
       }
@@ -149,11 +153,25 @@ function restartGame() {
   //add d-none to  the difficulty selection div
   document.getElementById("gameArea").classList.add("d-none");
   document.getElementById("difficultyBox").classList.add("d-none");
+
+  document.getElementById('loseAlert').classList.add('d-none')
+  document.getElementById('winAlert').classList.add('d-none')
+
 }
 
 //enter key button with a 1.5 second timeout
 document.getElementById('letterInput').addEventListener('keypress', (event) => {
   if (event.key === 'Enter') {
-    setTimeout(() => guessLetter(), 1500);
+    setTimeout(() => guessLetter(), 2000);
   }
 })
+
+function winDisplay() {
+  winCounter++;
+  document.getElementById('winCounter').textContent = `Wins: ${winCounter}`
+}
+
+function lossDisplay() {
+  lossCounter++;
+  document.getElementById('lossCounter').textContent = `Losses: ${lossCounter}`
+}
