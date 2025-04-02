@@ -20,7 +20,6 @@ let winCounter = 0
 let lossCounter = 0
 const maxMistakes = 6;
 //button variable
-let guessBtn = document.getElementById('guessBtn')
 //start game function
 function startGame(level) {
   selectedWord = getRandomWord(level);
@@ -130,6 +129,7 @@ correctSound.play();
 }
 
 function endGame(won) {
+  document.getElementById('letterInput').disabled = true
   if (won === true) {
     winDisplay();
     document.getElementById('winAlert').classList.remove('d-none')
@@ -145,7 +145,7 @@ function restartGame() {
   selectedWord = "";
  displayWord = "";
  wrongGuesses = 0;
-  guessedLetters = []
+  guessedLetters = ['']
   //show difficulty selection and show game area
   document.getElementById("difficultySelection").classList.add("d-block");
   document.getElementById("difficultySelection").classList.remove("d-none");
@@ -157,6 +157,8 @@ function restartGame() {
   document.getElementById('loseAlert').classList.add('d-none')
   document.getElementById('winAlert').classList.add('d-none')
 
+  document.getElementById('letterInput').disabled = false
+  document.getElementById('shamrock').src = ''
 }
 
 //enter key button with a 1.5 second timeout

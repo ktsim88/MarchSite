@@ -50,8 +50,44 @@
                  <h2 id="wordDisplay" class="mb-3">_ _ _ _ _ _</h2>
                  <!-- input for guessing -->
                   <div class="row">
-                                            <!-- guide on how to play -->
+                    <!-- guide on how to play -->
                     <div class="col-md-4">
+                        <div class="accordion d-md-none d-sm-block my-3" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button
+                                        class="accordion-button"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne"
+                                        aria-expanded="true"
+                                        aria-controls="collapseOne"
+                                    >
+                                        How to play?
+                                    </button>
+                                </h2>
+                                <div
+                                    id="collapseOne"
+                                    class="accordion-collapse collapse show"
+                                    aria-labelledby="headingOne"
+                                    data-bs-parent="#accordionExample"
+                                >
+                                    <div class="accordion-body">
+                                        <h6>Instructions</h6>
+                                        <ol>
+                                            <li>Type any letter from a-z in the textbox and make your guess.</li>
+                                            <li>If you make the <strong>WRONG</strong> guess, a part of the clover will show up.</li>
+                                            <li>If you make the <strong>CORRECT</strong> guess, the letters will show up and fill in the gaps.</li>
+                                            <li>Continue to guess all of the letters until you finish the word</li>
+                                            <li>If you make more than 6 mistakes, the game is over.</li>
+                                            <li>Click the restart button when you finish.</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <!-- end of accordian -->
                         <div class="card d-md-block d-none h-100 my-1">
                             <div class="card-body">
                               <h5 class="card-title">How to play?</h5>
@@ -114,15 +150,14 @@
                     </div>
                     <div class="col-md-4 col-sm-12">
                         <!-- win/loss counter -->
-                            <div class="card h-100 my-1">
+                            <div class="card d-md-block d-sm-none h-100 my-1">
                                 <div class="card-body">
                                   <h5 class="card-title">Display Counter</h5>
                                   <h6 class="card-subtitle mb-2 text-body-secondary">Wins/Losses</h6>
-                                  <p class="card-text">Here's where you will see your wins and losses from all of the games you have played</p>
                                   <p id="winCounter">Wins: 0</p>
                                   <p id="lossCounter">Losses: 0</p>
                                 </div>
-                              </div>
+                            </div>
                          
                     </div>
 
