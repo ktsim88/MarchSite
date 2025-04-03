@@ -63,17 +63,24 @@ function updateDifficultyDisplay(level) {
 
 function guessLetter() {
   let inputField = document.getElementById("letterInput"); //get input field
+  let guessBtn = document.getElementById('guessBtn') //get guessbtn
   let guessedLetter = inputField.value.toLowerCase(); //convert input to lowercase
+
+  guessBtn.disabled = true //button disables as soon as its clicked
+
   //guessed letter enter key
   //check if letter input is valid letter (a-z)
   if (!guessedLetter.match(/^[a-z]$/)) {
     alert("Please enter a letter from A-Z");
     inputField.value = "";
+    guessBtn.disabled = false // let user retry
     return;
   }
   if (guessedLetters.includes(guessedLetter)) {
     alert(`You already guessed ${guessedLetter}. Try a different letter!`);
     inputField.value = '';
+    guessBtn.disabled = false // let user retry
+
     return;
   } else {
     guessedLetters.push(guessedLetter);
@@ -87,6 +94,10 @@ function guessLetter() {
   
   inputField.value = '';
   inputField.focus();
+//time out for 2 seconds until the user can retry
+  setTimeout(() => {
+    guessBtn.disabled = false;
+  }, 2000);
 }
 
 function wrongGuess(guessedLetter) {
@@ -144,8 +155,10 @@ function endGame(won) {
 function restartGame() {
   selectedWord = "";
  displayWord = "";
- wrongGuesses = 0;
- document.getElementById('wrongLetters').textContent = 'Wrong Guesses: '
+  wrongGuesses = 0;
+  guessedLetters = [];
+  document.getElementById('wrongLetters').textContent = "Wrong Guesses: ";
+
  //show difficulty selection and show game area
   document.getElementById("difficultySelection").classList.add("d-block");
   document.getElementById("difficultySelection").classList.remove("d-none");
@@ -164,6 +177,7 @@ function restartGame() {
 //enter key button with a 1.5 second timeout
 document.getElementById('letterInput').addEventListener('keypress', (event) => {
   if (event.key === 'Enter') {
+    //user has to wait 2 seconds before retrying
     setTimeout(() => guessLetter(), 2500);
   }
 })
