@@ -145,8 +145,8 @@ function restartGame() {
   selectedWord = "";
  displayWord = "";
  wrongGuesses = 0;
-  guessedLetters = ['']
-  //show difficulty selection and show game area
+ document.getElementById('wrongLetters').textContent = 'Wrong Guesses: '
+ //show difficulty selection and show game area
   document.getElementById("difficultySelection").classList.add("d-block");
   document.getElementById("difficultySelection").classList.remove("d-none");
 
@@ -164,7 +164,7 @@ function restartGame() {
 //enter key button with a 1.5 second timeout
 document.getElementById('letterInput').addEventListener('keypress', (event) => {
   if (event.key === 'Enter') {
-    setTimeout(() => guessLetter(), 2000);
+    setTimeout(() => guessLetter(), 2500);
   }
 })
 
